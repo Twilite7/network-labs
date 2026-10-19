@@ -1,0 +1,90 @@
+R1#show running-config
+Building configuration...
+
+Current configuration : 893 bytes
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname R1
+!
+!
+!
+!
+!
+!
+!
+!
+ip cef
+no ipv6 cef
+!
+!
+!
+!
+license udi pid CISCO2911/K9 sn FTX15249982-
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+no ip domain-lookup
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0
+ description Sales LAN
+ ip address 192.168.10.1 255.255.255.128
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1
+ description Engineering LAN
+ ip address 192.168.10.129 255.255.255.192
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/2
+ description Link to R2
+ ip address 192.168.10.225 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+ip classless
+ip route 192.168.10.192 255.255.255.224 192.168.10.226 
+!
+ip flow-export version 9
+!
+!
+!
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+!
+!
+end
